@@ -12,7 +12,7 @@ import java.util.List;
 
 @Component
 @Primary
-public class JdbcProductDao implements ProductDao {
+public class JdbcProductDao implements com.pluralsight.NorthwindTradersSpringBoot.dao.ProductDao {
 
     private DataSource dataSource;
 
