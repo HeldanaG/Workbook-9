@@ -23,7 +23,10 @@ public class NorthwindApplication implements CommandLineRunner {
             System.out.println("\n=== Product Admin Menu ===");
             System.out.println("1. List Products");
             System.out.println("2. Add Product");
-            System.out.println("3. Exit");
+            System.out.println("3. Delete Product");
+            System.out.println("4. Update Product");
+            System.out.println("5. Search Product");
+            System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
             String choice = scanner.nextLine();
 
@@ -55,9 +58,44 @@ public class NorthwindApplication implements CommandLineRunner {
                     break;
 
                 case "3":
+                    System.out.print("Enter product ID to delete: ");
+                    int deleteId = Integer.parseInt(scanner.nextLine());
+                    productDao.delete(deleteId);
+                    System.out.println("Product deleted.");
+                    break;
+
+                case "4":
+                    System.out.print("Enter product ID to update: ");
+                    int updateId = Integer.parseInt(scanner.nextLine());
+
+                    System.out.print("Enter new product name: ");
+                    String newName = scanner.nextLine();
+
+                    System.out.print("Enter new category ID: ");
+                    int newCategory = Integer.parseInt(scanner.nextLine());
+
+                    System.out.print("Enter new unit price: ");
+                    double newPrice = Double.parseDouble(scanner.nextLine());
+
+                    Product updatedProduct = new Product(updateId, newName, newCategory, newPrice);
+                    productDao.update(updatedProduct);
+                    System.out.println("Product updated.");
+                    break;
+
+                case "5":
+                    System.out.print("Enter keyword to search: ");
+                    String keyword = scanner.nextLine();
+
+                    List<Product> searchResults = productDao.search(keyword);
+                    System.out.println("Search Results:");
+                    for (Product p : searchResults) {
+                        System.out.println(p);
+                    }
+                    break;
+
+                case "6":
                     System.out.println("Goodbye!");
                     System.exit(0);
-                    break;
 
                 default:
                     System.out.println("Invalid choice. Please try again.");

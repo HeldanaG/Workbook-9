@@ -36,7 +36,7 @@ public class Product {
         return categoryId;
     }
 
-    public void setCategoryId(int category) {
+    public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
 
