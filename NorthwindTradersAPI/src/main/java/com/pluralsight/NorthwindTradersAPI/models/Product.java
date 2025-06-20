@@ -54,7 +54,7 @@ public class Product {
                 "productId=" + productId +
                 ", name='" + name + '\'' +
                 ", category=" + categoryId +
-                ", price ="+price +
+                ", price =" + price +
                 '}';
     }
 }
