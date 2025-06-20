@@ -11,7 +11,7 @@ public class Category {
     public Category(int categoryID, String categoryName, String description) {
         this.categoryID = categoryID;
         this.categoryName = categoryName;
-        description = description;
+        this.description = description;
     }
 
     public int getCategoryID() {
@@ -35,7 +35,7 @@ public class Category {
     }
 
     public void setDescription(String description) {
-        description = description;
+        this.description = description;
     }
     @Override
     public String toString() {
